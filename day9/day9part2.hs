@@ -2,7 +2,7 @@
 follow :: (Int, Int) -> (Int, Int) -> (Int, Int)
 follow (hx, hy) (tx, ty)  = let dx = hx - tx 
                                 dy = hy - ty
-                            in if dx /= 2 && dy /= 2 then (tx, ty) -- SPEED
+                            in if dx /= 2 && dy /= 2 then (tx, ty) -- SPEED 
                                                      else case (dx, dy) of
                                                             (2,   0) -> (tx + 1, ty)
                                                             (-2,  0) -> (tx - 1, ty)
