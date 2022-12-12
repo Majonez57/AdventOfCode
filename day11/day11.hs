@@ -1,5 +1,3 @@
-import Data.Char
-import Language.Haskell.TH (appT)
 data Monkey = Monkey {
             items :: [Int],
             look  :: Int -> Int,
@@ -31,7 +29,7 @@ parseMonkeys (("If":"true:":"throw":"to":"monkey":n:_):ss) (m:ms) = parseMonkeys
 parseMonkeys (("If":"false:":"throw":"to":"monkey":n:_):ss) (m:ms) = parseMonkeys ss (m':ms)
                                                     where m' = m {m2 = read n}
 parseMonkeys ([]:ss) ms = parseMonkeys ss ms
-parseMonkeys [] ms = ms
+parseMonkeys _ ms = ms
 
 appNRound :: Int -> [Monkey] -> [Monkey]
 appNRound n ms = if n==0 then ms else appNRound (n-1) (appRound 0 ms)
@@ -83,3 +81,4 @@ main = do
 insertAt :: a -> Int -> [a] -> [a]
 insertAt newElement 0 (a:as) = newElement:as
 insertAt newElement i (a:as) = a : insertAt newElement (i - 1) as
+insertAt newElement _ [] = [newElement]
