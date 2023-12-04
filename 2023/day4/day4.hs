@@ -1,7 +1,6 @@
 
 wins :: ([Int], [Int]) -> Int
-wins (w, n) = (length . filter (==True)) boolz
-            where boolz = map (\x -> (elem x) n) w
+wins (w, n) = (length . filter (\x -> (elem x) n) ) w
 
 parser :: [String] -> ([Int], [Int])
 parser ("Card":n:xs) = parser xs
@@ -9,7 +8,6 @@ parser xs = (map read win,map read $ tail num)
         where win = takeWhile (/= "|") xs
               num = dropWhile (/= "|") xs
               len = length win
-
 
 inc :: [(Int, Int)] -> Int -> [(Int, Int)]
 inc ((v,t):xs) i = (v, t+i) : inc xs i
