@@ -1,3 +1,4 @@
+import timeit
 
 with open("input-p1.txt", 'r') as f:
     banks = f.read().splitlines()
@@ -16,10 +17,10 @@ def part_1():
             elif n > sec:
                 sec = n
 
-        print(int(curr)*10 + int(sec))
+        #print(int(curr)*10 + int(sec))
         total += int(curr)*10 + int(sec)
 
-    print(total)
+    #print(total)
 
 def part_2():
     total = 0
@@ -36,16 +37,16 @@ def part_2():
 
             
             spot = 0 if remaining > 12 else 12-remaining
-            print(n)
+            #print(n)
             for j in range(spot,12):
                 if current[j] < n:
                     current[j] = n
                     for k in range(j+1, 12) : current[k] = 0
                     break
 
-            print(current)
+            #print(current)
         total += int(''.join([str(x) for x in current]))
     
-    print(total)
+    #print(total)
 
-part_2()
+print(timeit.timeit(part_2, number=100))
