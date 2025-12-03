@@ -2,6 +2,7 @@
 *.o
 *.exe
 *.vscode
+*.txt
 bad.hs
 day5b.hs
 
